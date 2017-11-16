@@ -67,7 +67,7 @@ $ yarn add triage-new-issues
 Go to https://github.com/apps/triage-new-issues and click the green "install" button.
 
 Very much appreciated the work of **Gyandeep Singh ([@gyandeeps](https://github.com/gyandeeps))** on
-the plugin for the [ESLint's GitHub Bot](https://github.com/eslint/eslint-github-bot/tree/4dd943a51b415b0b2053b4a4ae75a4e9244fcb09) (placed at `src/plugins/triage` folder)!**
+the plugin for the [ESLint's GitHub Bot](https://github.com/eslint/eslint-github-bot/tree/4dd943a51b415b0b2053b4a4ae75a4e9244fcb09/src/plugins/triage)!
 
 In addition to it, to safe UI clicking and time, I just added ability to auto-remove `triage` label when another label is added.
 
