@@ -4,7 +4,7 @@
   "description": "A GitHub App, built with [probot][] that adds `triage` label to newly-created issues which don't have labels",
   "repository": "tunnckoCore/triage-new-issues",
   "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
-  "nspId": "e5980075-9545-47a2-b946-35ee5ba2091d",
+  "nspId": "b39d4bd7-59d6-43fa-9e21-b2589b5169b4",
   "main": "./src/index.js",
   "scripts": {
     "start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) probot run ./src/index.js",
@@ -43,13 +43,13 @@
   },
   "keywords": [
     "automation",
-    "probot-app",
     "github-app",
-    "triage",
     "issues",
-    "new issues",
     "labels",
-    "new label"
+    "new issues",
+    "new label",
+    "probot-app",
+    "triage"
   ],
   "verb": {
     "run": true,
@@ -75,6 +75,9 @@
     "lint": {
       "reflinks": true
     },
-    "reflinks": []
+    "reflinks": [
+      "hela",
+      "probot"
+    ]
   }
 }
