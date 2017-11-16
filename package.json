@@ -20,14 +20,6 @@
     "npm": ">=5",
     "yarn": ">=1"
   },
-  "now": {
-    "env": {
-      "APP_ID": "@triage-new-issues-app-id",
-      "NODE_ENV": "production",
-      "PRIVATE_KEY": "@triage-new-issues-private-key",
-      "WEBHOOK_SECRET": "@triage-new-issues-webhook-secret"
-    }
-  },
   "files": [
     "src/"
   ],

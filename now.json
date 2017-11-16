@@ -1,0 +1,10 @@
+{
+  "public": true,
+  "alias": "triage-new-issues",
+  "env": {
+    "APP_ID": "@triage-new-issues-app-id",
+    "NODE_ENV": "production",
+    "PRIVATE_KEY": "@triage-new-issues-private-key",
+    "WEBHOOK_SECRET": "@triage-new-issues-webhook-secret"
+  }
+}
