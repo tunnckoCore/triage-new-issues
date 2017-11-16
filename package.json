@@ -1,0 +1,80 @@
+{
+  "name": "triage-new-issues",
+  "version": "0.0.0-semantically-released",
+  "description": "A GitHub App, built with [probot][] that adds `triage` label to newly-created issues which don't have labels",
+  "repository": "tunnckoCore/triage-new-issues",
+  "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
+  "nspId": "e5980075-9545-47a2-b946-35ee5ba2091d",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) probot run ./src/index.js",
+    "test": "NODE_ENV=test yarn hela test",
+    "precommit": "yarn hela precommit",
+    "commit": "yarn hela commit",
+    "prepublishOnly": "yarn hela protect"
+  },
+  "license": "Apache-2.0",
+  "licenseStart": 2017,
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5",
+    "yarn": ">=1"
+  },
+  "now": {
+    "env": {
+      "APP_ID": "@triage-new-issues-app-id",
+      "NODE_ENV": "production",
+      "PRIVATE_KEY": "@triage-new-issues-private-key",
+      "WEBHOOK_SECRET": "@triage-new-issues-webhook-secret"
+    }
+  },
+  "files": [
+    "src/"
+  ],
+  "dependencies": {
+    "probot": "3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "4.11.0",
+    "eslint-config-tunnckocore": "0.2.0",
+    "hela": "2.0.6",
+    "hela-config-tunnckocore": "2.2.6",
+    "mukla": "0.4.9"
+  },
+  "keywords": [
+    "automation",
+    "probot-app",
+    "github-app",
+    "triage",
+    "issues",
+    "new issues",
+    "labels",
+    "new label"
+  ],
+  "verb": {
+    "run": true,
+    "toc": {
+      "render": true,
+      "method": "preWrite",
+      "maxdepth": 3
+    },
+    "layout": "empty",
+    "tasks": [
+      "readme"
+    ],
+    "related": {
+      "list": [
+        "gitcommit",
+        "p-map-series",
+        "execa",
+        "hela",
+        "mri"
+      ],
+      "highlight": "hela"
+    },
+    "lint": {
+      "reflinks": true
+    },
+    "reflinks": []
+  }
+}
