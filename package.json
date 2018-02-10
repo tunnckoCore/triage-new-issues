@@ -6,6 +6,7 @@
   "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
   "nspId": "b39d4bd7-59d6-43fa-9e21-b2589b5169b4",
   "main": "./src/index.js",
+  "fakeField": true,
   "scripts": {
     "start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) probot run ./src/index.js",
     "test": "NODE_ENV=test yarn hela test",
