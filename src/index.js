@@ -15,7 +15,7 @@
 async function triage (context) {
   const { payload, github } = context
 
-  if (payload.issue.labels.length === 0) {
+  if (!payload.issue || payload.issue.labels.length === 0) {
     /*
      * Fetch the issue again to double-check that it has no labels.
      * Sometimes, when an issue is opened with labels, the initial
@@ -41,7 +41,7 @@ async function triage (context) {
 async function check (context) {
   const { payload, github } = context
 
-  if (payload.label.name !== 'triage') {
+  if (payload.label && payload.label.name !== 'triage') {
     await github.issues.removeLabel(context.issue({ name: 'triage' }))
   }
 }
@@ -54,4 +54,8 @@ module.exports = (robot) => {
   robot.on('issues.opened', triage)
   robot.on('issues.labeled', check)
   robot.on('issues.reopened', triage)
+
+  robot.on('pull_request.opened', triage)
+  robot.on('pull_request.labeled', check)
+  robot.on('pull_request.reopened', triage)
 }
