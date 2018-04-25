@@ -4,6 +4,31 @@
  * @license Apache-2.0
  */
 
+const configName = 'triage.yml'
+
+/**
+ * Returns the triage label reading it from the settings.
+ *
+ * @param   {Object} `context` Probot webhook event context
+ * @returns {Promise} A Promise that fulfills with the label when the action is complete
+ */
+async function triageLabel (context) {
+  const config = await context.config(configName)
+  const { label } = config
+  return label || 'triage'
+}
+
+/**
+ * Returns whether the triage labeling is enabled or not.
+ *
+ * @param   {Object} `context` Probot webhook event context
+ * @returns {Promise} A Promise that fulfills with the enabled value when the action is complete
+ */
+async function enabled (context) {
+  const config = await context.config(configName)
+  return config.enabled === true
+}
+
 /**
  * Adds the triage label if the issue has no labels on it.
  *
@@ -14,7 +39,9 @@
 
 async function triage (context) {
   const { payload, github } = context
-
+  if (!(await enabled(context))) {
+    return
+  }
   if (!payload.issue || payload.issue.labels.length === 0) {
     /*
      * Fetch the issue again to double-check that it has no labels.
@@ -25,7 +52,8 @@ async function triage (context) {
     const issue = await github.issues.get(context.issue()).then((res) => res.data)
 
     if (issue.labels.length === 0) {
-      await github.issues.addLabels(context.issue({ labels: ['triage'] }))
+      const label = await triageLabel(context)
+      await github.issues.addLabels(context.issue({ labels: [label] }))
     }
   }
 }
@@ -40,9 +68,12 @@ async function triage (context) {
 
 async function check (context) {
   const { payload, github } = context
-
-  if (payload.label && payload.label.name !== 'triage') {
-    await github.issues.removeLabel(context.issue({ name: 'triage' }))
+  if (!(await enabled(context))) {
+    return
+  }
+  const label = await triageLabel(context)
+  if (payload.label && payload.label.name !== label) {
+    await github.issues.removeLabel(context.issue({ name: label }))
   }
 }
 
