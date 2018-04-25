@@ -1303,9 +1303,9 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
-express-async-errors@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/express-async-errors/-/express-async-errors-2.1.0.tgz#67b536db21c20668d5cf637a8aa4a4868e54b06a"
+express-async-errors@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/express-async-errors/-/express-async-errors-2.1.1.tgz#0d3ba5a5af8747ec6e45093f8bf064364b3c37a1"
   dependencies:
     express "^4.16.2"
 
@@ -3058,9 +3058,9 @@ private@^0.1.7:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
 
-probot@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-5.0.0.tgz#d6c019717db65ed140479af93b1313faec0282f6"
+probot@5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-5.0.1.tgz#1fe05e29fb8c1f04f40174ebc1d0e245f2f6c719"
   dependencies:
     bottleneck "^1.16.0"
     bunyan "^1.8.12"
@@ -3070,7 +3070,7 @@ probot@5.0.0:
     commander "^2.11.0"
     dotenv "~4.0.0"
     express "^4.16.2"
-    express-async-errors "^2.1.0"
+    express-async-errors "2.1.1"
     github "^12.0.3"
     github-webhook-handler "^0.7.0"
     hbs "^4.0.1"
