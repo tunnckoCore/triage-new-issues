@@ -7,27 +7,26 @@
 const configName = 'triage.yml'
 
 /**
- * Returns the triage label reading it from the settings. If the label is not defined it returns 'triage'
+ * Returns the triage label reading it from the settings.
  *
  * @param   {Object} `context` Probot webhook event context
  * @returns {Promise} A Promise that fulfills with the label when the action is complete
  */
-async function triageLabel(context) {
+async function triageLabel (context) {
   const config = await context.config(configName)
-  const label = config['label']
-  return label ? label : 'triage'
+  const { label } = config
+  return label || 'triage'
 }
 
 /**
- * Returns whether the triage labeling is enabled or not. If it's not defined in the settings it returns true as a default value.
+ * Returns whether the triage labeling is enabled or not.
  *
  * @param   {Object} `context` Probot webhook event context
  * @returns {Promise} A Promise that fulfills with the enabled value when the action is complete
  */
-async function enabled(context) {
+async function enabled (context) {
   const config = await context.config(configName)
-  const enabled = config['enabled']
-  return enabled === true
+  return config.enabled === true
 }
 
 /**
@@ -38,7 +37,7 @@ async function enabled(context) {
  * @private
  */
 
-async function triage(context) {
+async function triage (context) {
   const { payload, github } = context
   if (!(await enabled(context))) {
     return
@@ -50,7 +49,7 @@ async function triage(context) {
      * webhook event contains no labels.
      * https://github.com/eslint/eslint-github-bot/issues/38
      */
-    const issue = await github.issues.get(context.issue()).then(res => res.data)
+    const issue = await github.issues.get(context.issue()).then((res) => res.data)
 
     if (issue.labels.length === 0) {
       const label = await triageLabel(context)
@@ -67,7 +66,7 @@ async function triage(context) {
  * @private
  */
 
-async function check(context) {
+async function check (context) {
   const { payload, github } = context
   if (!(await enabled(context))) {
     return
@@ -82,7 +81,7 @@ async function check(context) {
  * Add triage label when an issue is opened or reopened
  */
 
-module.exports = robot => {
+module.exports = (robot) => {
   robot.on('issues.opened', triage)
   robot.on('issues.labeled', check)
   robot.on('issues.reopened', triage)
