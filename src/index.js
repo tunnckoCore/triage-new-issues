@@ -5,44 +5,55 @@
  */
 
 const configName = 'triage.yml'
-
-/**
- * Returns the triage label reading it from the settings.
- *
- * @param   {Object} `context` Probot webhook event context
- * @returns {Promise} A Promise that fulfills with the label when the action is complete
- */
-async function triageLabel (context) {
-  const config = await context.config(configName)
-  const { label } = config
-  return label || 'triage'
+const defaultConfig = {
+  enabled: false,
+  label: 'triage',
+  removeLabel: true
 }
 
 /**
- * Returns whether the triage labeling is enabled or not.
+ * Returns the bot configuration
  *
- * @param   {Object} `context` Probot webhook event context
- * @returns {Promise} A Promise that fulfills with the enabled value when the action is complete
+ * @param {Object} context - Probot webhook event context
  */
-async function enabled (context) {
-  const config = await context.config(configName)
-  return config.enabled === true
+async function getConfig (context) {
+  return context.config(configName, defaultConfig)
 }
 
 /**
- * Adds the triage label if the issue has no labels on it.
+ * @param {Object} issue - The issue to check
+ * @param {Object} config - The bot config object
+ * @returns {Boolean} true if the issue has one or more labels matching the pattern
+ */
+function matchesLabels (issue, config) {
+  const { removeLabel } = config
+  const labels = issue.labels.map((label) => label.name)
+  if (removeLabel === true) {
+    return labels.includes(config.label)
+  }
+  if (typeof removeLabel === 'string') {
+    return labels.some((label) => new RegExp(removeLabel).test(label))
+  }
+  if (Array.isArray(removeLabel)) {
+    return labels.some((label) => removeLabel.includes(label))
+  }
+  return false
+}
+
+/**
+ * Adds the triage label if the issue has no matching labels on it.
  *
  * @param   {Object} `context` Probot webhook event context
  * @returns {Promise} A Promise that fulfills when the action is complete
  * @private
  */
-
 async function triage (context) {
   const { payload, github } = context
-  if (!(await enabled(context))) {
+  const config = await getConfig(context)
+  if (!config.enabled) {
     return
   }
-  if (!payload.issue || payload.issue.labels.length === 0) {
+  if (!payload.issue || !matchesLabels(payload.issue, config)) {
     /*
      * Fetch the issue again to double-check that it has no labels.
      * Sometimes, when an issue is opened with labels, the initial
@@ -51,9 +62,8 @@ async function triage (context) {
      */
     const issue = await github.issues.get(context.issue()).then((res) => res.data)
 
-    if (issue.labels.length === 0) {
-      const label = await triageLabel(context)
-      await github.issues.addLabels(context.issue({ labels: [label] }))
+    if (!matchesLabels(issue, config)) {
+      await github.issues.addLabels(context.issue({ labels: [config.label] }))
     }
   }
 }
@@ -65,15 +75,14 @@ async function triage (context) {
  * @returns {Promise} A Promise that fulfills when the action is complete
  * @private
  */
-
 async function check (context) {
   const { payload, github } = context
-  if (!(await enabled(context))) {
+  const config = await getConfig(context)
+  if (!config.enabled) {
     return
   }
-  const label = await triageLabel(context)
-  if (payload.label && payload.label.name !== label) {
-    await github.issues.removeLabel(context.issue({ name: label }))
+  if (matchesLabels(payload.issue, config)) {
+    await github.issues.removeLabel(context.issue({ name: config.label }))
   }
 }
 
