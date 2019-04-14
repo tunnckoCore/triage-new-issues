@@ -1,4 +1,4 @@
-# triage-new-issues [![npm version][npmv-img]][npmv-url] [![github release][github-release-img]][github-release-url] [![License][license-img]][license-url] 
+# triage-new-issues [![npm version][npmv-img]][npmv-url] [![github release][github-release-img]][github-release-url] [![License][license-img]][license-url]
 
 > A [GitHub App](https://github.com/apps/triage-new-issues), built with [probot][] that adds `triage` label to newly-created issues which don't have labels
 
@@ -10,23 +10,23 @@ _The hosted app may have some downtimes! Sorry for that, i'm trying to keep it u
 
 ## Quality Assurance :100:
 
-[![bitHound Code][bithound-code-img]][bithound-code-url] 
-[![Code Style Standard][standard-img]][standard-url] 
-[![Linux Build][circleci-img]][circleci-url] 
-[![Code Coverage][codecov-img]][codecov-url] 
-[![bitHound Score][bithound-score-img]][bithound-score-url] 
-[![bitHound Deps][bithound-deps-img]][bithound-deps-url] 
-[![Dependencies Status][dependencies-img]][dependencies-url] 
+[![bitHound Code][bithound-code-img]][bithound-code-url]
+[![Code Style Standard][standard-img]][standard-url]
+[![Linux Build][circleci-img]][circleci-url]
+[![Code Coverage][codecov-img]][codecov-url]
+[![bitHound Score][bithound-score-img]][bithound-score-url]
+[![bitHound Deps][bithound-deps-img]][bithound-deps-url]
+[![Dependencies Status][dependencies-img]][dependencies-url]
 
-If you have any _how-to_ kind of questions, please read [Code of Conduct](./CODE_OF_CONDUCT.md) and **join the chat** rooms or [open an issue][open-issue-url].  
+If you have any _how-to_ kind of questions, please read [Code of Conduct](./CODE_OF_CONDUCT.md) and **join the chat** rooms or [open an issue][open-issue-url].
 You may also read the [Contributing Guide](./CONTRIBUTING.md). There, beside _"How to contribute?"_, we describe everything **_stated_** by  the badges.
 
-[![tunnckoCore support][chat-img]][chat-url] 
-[![Code Format Prettier][prettier-img]][prettier-url] 
-[![Node Security Status][nodesecurity-img]][nodesecurity-url] 
-[![Conventional Commits][ccommits-img]][ccommits-url] 
-[![Make A Pull Request][prs-welcome-img]][prs-welcome-url] 
-[![Node Version Required][nodeversion-img]][nodeversion-url] 
+[![tunnckoCore support][chat-img]][chat-url]
+[![Code Format Prettier][prettier-img]][prettier-url]
+[![Node Security Status][nodesecurity-img]][nodesecurity-url]
+[![Conventional Commits][ccommits-img]][ccommits-url]
+[![Make A Pull Request][prs-welcome-img]][prs-welcome-url]
+[![Node Version Required][nodeversion-img]][nodeversion-url]
 [![Renovate App Status][renovate-img]][renovate-url]
 
 <!--
@@ -35,13 +35,13 @@ You may also read the [Contributing Guide](./CONTRIBUTING.md). There, beside _"H
 </a>
 <p></p>-->
 
-[![All Contributors Spec][all-contributors-img]](#contributors) 
-[![Newsletter Subscribe][tinyletter-img]][tinyletter-url] 
-[![PayPal Author Support][paypal-donate-img]][paypal-donate-url] 
-[![Share Love Tweet][share-love-img]][share-love-url] 
-[![NPM Downloads Weekly][downloads-weekly-img]][npmv-url] 
-[![NPM Downloads Monthly][downloads-monthly-img]][npmv-url] 
-[![NPM Downloads Total][downloads-total-img]][npmv-url] 
+[![All Contributors Spec][all-contributors-img]](#contributors)
+[![Newsletter Subscribe][tinyletter-img]][tinyletter-url]
+[![PayPal Author Support][paypal-donate-img]][paypal-donate-url]
+[![Share Love Tweet][share-love-img]][share-love-url]
+[![NPM Downloads Weekly][downloads-weekly-img]][npmv-url]
+[![NPM Downloads Monthly][downloads-monthly-img]][npmv-url]
+[![NPM Downloads Total][downloads-total-img]][npmv-url]
 
 ## Table of Contents
 - [Use programmatically](#use-programmatically)
@@ -74,6 +74,42 @@ the plugin for the [ESLint's GitHub Bot](https://github.com/eslint/eslint-github
 
 In addition to it, to safe UI clicking and time, I just added ability to auto-remove `triage` label when another label is added.
 
+## Configuration
+Create a `.github/triage.yml` file in the repository where you installed the bot.
+
+<table>
+  <tr>
+    <td><code>enabled</code></td>
+    <td><code>boolean</code></td>
+    <td>enable or disable the bot for this repo</td>
+  </tr>
+  <tr>
+    <td><code>label</code></td>
+    <td><code>string</code></td>
+    <td>the label to add to new issues</td>
+  </tr>
+  <tr>
+    <td><code>removeLabel</code></td>
+    <td><code>boolean | string | string[]</code></td>
+    <td>true/false or a regex string matching labels that should remove the triage label</td>
+  </tr>
+</table>
+
+```yaml
+enabled: true
+label: 'triage'
+removeLabel: false # The label will not be removed automatically
+```
+
+```yaml
+# The label will be removed if the issue is tagged `bug` or `feature`
+removeLabel: 'bug|feature'
+removeLabel: ['bug', 'feature'] # Also accepts an array of plain strings
+
+# The label will be removed if the issue is tagged anything starting with `type:`
+removeLabel: '^type: .*'
+```
+
 ## Deploying
 
 We hosting it on https://triage-new-issues.now.sh/, but if you want to host it yourself
@@ -86,14 +122,14 @@ We hosting it on https://triage-new-issues.now.sh/, but if you want to host it y
 
 **Note:** As of 15 November 2017, deploying on Now needs this workaround - [probot/probot#318](https://github.com/probot/probot/issues/318#issuecomment-343010573)
 
-<!-- 
+<!--
  then
 make sure to add `@triage-new-issues-app-id`, `@triage-new-issues-private-key`, `@triage-new-issues-webhook-secret` secrets and then you can use it [as in here](https://github.com/tunnckoCore/triage-new-issues/blob/e0e38f95d9e51cd65e39acb188847097115f2177/package.json#L23-L29). On more help of how to add secrets to [Now](www.now.sh) check `now secrets help`. -->
 
 **[back to top](#thetop)**
 
 ## Related Projects
-Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance! 
+Some of these projects are used here or were inspiration for this one, others are just related. So, thanks for your existance!
 - [execa](https://www.npmjs.com/package/execa): A better `child_process` | [homepage](https://github.com/sindresorhus/execa#readme "A better `child_process`")
 - [gitcommit](https://www.npmjs.com/package/gitcommit): Simple, small and stable helper & prompter for submitting conventional commits | [homepage](https://github.com/tunnckoCore/gitcommit#readme "Simple, small and stable helper & prompter for submitting conventional commits")
 - [hela](https://www.npmjs.com/package/hela): Powerful & flexible task runner framework in 80 lines, based on execa… [more](https://github.com/tunnckoCore/hela#readme) | [homepage](https://github.com/tunnckoCore/hela#readme "Powerful & flexible task runner framework in 80 lines, based on execa. Supports presets, a la ESLint but for tasks & npm scripts")
@@ -103,24 +139,24 @@ Some of these projects are used here or were inspiration for this one, others ar
 **[back to top](#thetop)**
 
 ## Contributing
-Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.  
+Please read the [Contributing Guide](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md) documents for advices.
 For bugs reports and feature requests, [please create an issue][open-issue-url] or join us at our [Flock chat][chat-url] rooms.
-  
+
 ## Contributors
-Thanks to the hard work of [these wonderful people](./CONTRIBUTORS.md) this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.  
+Thanks to the hard work of [these wonderful people](./CONTRIBUTORS.md) this project is alive and it also follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
 [Pull requests](./CONTRIBUTING.md#opening-a-pull-request), stars and all kind of [contributions](https://opensource.guide/how-to-contribute/#what-it-means-to-contribute) are always welcome.
 
 ## Users
-You can see who uses `triage-new-issues` in the [USERS.md](./USERS.md) file. Please feel free adding this file if it not exists.  
+You can see who uses `triage-new-issues` in the [USERS.md](./USERS.md) file. Please feel free adding this file if it not exists.
 If you or your organization are using this project, consider adding yourself to the list of users. **Thank You!**
 
 ## License
-Copyright (c) 2017-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.  
+Copyright (c) 2017-present, [Charlike Mike Reagent][author-link] `<olsten.larck@gmail.com>`.
 Released under the [Apache-2.0 License][license-url].
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on November 17, 2017._  
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.6.0, on November 17, 2017._
 _Project scaffolded and managed with [hela][]._
 
 [hela]: https://github.com/tunnckoCore/hela
@@ -170,7 +206,7 @@ _Project scaffolded and managed with [hela][]._
 
 [nodesecurity-url]: https://nodesecurity.io/orgs/tunnckocore/projects/b39d4bd7-59d6-43fa-9e21-b2589b5169b4/master
 [nodesecurity-img]: https://nodesecurity.io/orgs/tunnckocore/projects/b39d4bd7-59d6-43fa-9e21-b2589b5169b4/badge
-<!-- the original color of nsp: 
+<!-- the original color of nsp:
 [nodesec-img]: https://img.shields.io/badge/nsp-no_known_vulns-35a9e0.svg -->
 
 [ccommits-url]: https://conventionalcommits.org/
@@ -204,4 +240,3 @@ _Project scaffolded and managed with [hela][]._
 
 [highlighted-link]: https://ghub.now.sh/hela
 [author-link]: https://i.am.charlike.online
-
