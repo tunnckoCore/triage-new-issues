@@ -27,7 +27,7 @@
     "probot": "9.2.19"
   },
   "devDependencies": {
-    "eslint": "5.12.1",
+    "eslint": "6.0.1",
     "eslint-config-tunnckocore": "3.0.0",
     "hela": "2.0.10",
     "hela-config-tunnckocore": "2.2.16",
