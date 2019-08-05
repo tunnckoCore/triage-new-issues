@@ -1233,6 +1233,11 @@ deepmerge@4.0.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
   integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
 
+deepmerge@^3.2.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
+  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
+
 default-require-extensions@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/default-require-extensions/-/default-require-extensions-1.0.0.tgz#f37ea15d3e13ffd9b437d33e1a75b5fb97874cb8"
@@ -4439,10 +4444,10 @@ private@^0.1.7:
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
   integrity sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==
 
-probot@9.2.20:
-  version "9.2.20"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-9.2.20.tgz#302a85a937266f028398885571e25662ade74ddc"
-  integrity sha512-GDzyR+yNqMKneRfpwnAku099sIGpJ5b2Zxqncw9/QvdM13DmDLNN0hL9dC6QJR2WefcXjjMbQOIO65GhnLSOVQ==
+probot@9.3.0:
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-9.3.0.tgz#fba8330f185b83fd9fbba9d551cce67b9b3f6b62"
+  integrity sha512-4vqBC6EHidCeEcodZyVvRyrpjkotUx59jDdxVOaB2m8dlHi60di+EydFrY2EHHz9xxQIkPXDgcQEeNKGxD+eDA==
   dependencies:
     "@octokit/app" "^4.0.0"
     "@octokit/graphql" "3.0.1"
@@ -4458,6 +4463,7 @@ probot@9.2.20:
     bunyan-sentry-stream "^1.1.0"
     cache-manager "^2.4.0"
     commander "^2.19.0"
+    deepmerge "^3.2.0"
     dotenv "~8.0.0"
     eventsource "^1.0.7"
     express "^4.16.2"
