@@ -1245,10 +1245,10 @@ deepmerge@4.0.0:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.0.0.tgz#3e3110ca29205f120d7cb064960a39c3d2087c09"
   integrity sha512-YZ1rOP5+kHor4hMAH+HRQnBQHg+wvS1un1hAOuIcxcBy0hzcUf6Jg2a1w65kpoOUnurOfZbERwjI1TfZxNjcww==
 
-deepmerge@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-3.3.0.tgz#d3c47fd6f3a93d517b14426b0628a17b0125f5f7"
-  integrity sha512-GRQOafGHwMHpjPx9iCvTgpu9NojZ49q794EEL94JVEw6VaeA8XTUyBKvAkOOjBX9oJNiV6G3P+T+tihFjo2TqA==
+deepmerge@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.1.0.tgz#f4647b378c0a9d32965470e477c01ae55451b19a"
+  integrity sha512-tJlmKE535XRVBrzMRMqlm4V2S/l3yO/qr9Ad0MUqgR5jh9epGrALs8Q6+pROMa6ntDieAlnmYM/cDFCtNjp4+Q==
 
 default-require-extensions@^1.0.0:
   version "1.0.0"
@@ -4468,10 +4468,10 @@ private@^0.1.7:
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
   integrity sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==
 
-probot@9.5.0:
-  version "9.5.0"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-9.5.0.tgz#ba7b84769f4588b4d6da13704dd80ef33863f88f"
-  integrity sha512-f/2+yAWWO1Mz9WdpLu65bfqge3ojpOXLUQC9pvzB7OMf+1wb2uCWscD39S7+WhXRSAG5KnPol2auP/sWSqgdHg==
+probot@9.5.1:
+  version "9.5.1"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-9.5.1.tgz#150c951460530a6fc27fbc1151d0dff8ef539a28"
+  integrity sha512-LAG1Etx6oQPpfpDK4TYkfU4KAn9zudrHjmDMd3UTWpo8M6BQePFBhSBrs/aa+VLkJq6LpXoM3QlV7dZX7QW2Jw==
   dependencies:
     "@octokit/app" "^4.0.0"
     "@octokit/graphql" "^4.2.0"
@@ -4488,7 +4488,7 @@ probot@9.5.0:
     bunyan-sentry-stream "^1.1.0"
     cache-manager "^2.4.0"
     commander "^3.0.0"
-    deepmerge "^3.2.0"
+    deepmerge "^4.1.0"
     dotenv "~8.1.0"
     eventsource "^1.0.7"
     express "^4.16.2"
