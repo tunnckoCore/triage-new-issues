@@ -24,7 +24,7 @@
     "src/"
   ],
   "dependencies": {
-    "probot": "9.5.0"
+    "probot": "9.5.1"
   },
   "devDependencies": {
     "eslint": "6.5.1",
