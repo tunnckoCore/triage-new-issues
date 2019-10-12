@@ -505,13 +505,6 @@ async@^2.0.0-rc.1:
   dependencies:
     lodash "^4.14.0"
 
-async@^2.5.0:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.6.2.tgz#18330ea7e6e313887f5d2f2a904bac6fe4dd5381"
-  integrity sha512-H1qVYh1MYhEEFLsP97cVKqCGo7KfCyTt6uEWqsTBr9SO84oK9Uwbyd/yCW+6rKJLHksBNUVWZDAjfS+Ccx0Bbg==
-  dependencies:
-    lodash "^4.17.11"
-
 asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
@@ -2473,12 +2466,12 @@ graceful-fs@^4.1.15:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.0.tgz#8d8fdc73977cb04104721cb53666c1ca64cd328b"
   integrity sha512-jpSvDPV4Cq/bgtpndIWbI5hmYxhQGHPC4d4cqBPb4DLniCfhJokdXhwhaDuLBGLQdvvRum/UiX6ECVIPvDXqdg==
 
-handlebars@4.0.14:
-  version "4.0.14"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.14.tgz#88de711eb693a5b783ae06065f9b91b0dd373a71"
-  integrity sha512-E7tDoyAA8ilZIV3xDJgl18sX3M8xB9/fMw8+mfW4msLW8jlX97bAnWgT3pmaNXuvzIEgSBMnAHfuXsB2hdzfow==
+handlebars@4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.3.5.tgz#d6c2d0a0f08b4479e3949f8321c0f3893bb691be"
+  integrity sha512-I16T/l8X9DV3sEkY9sK9lsPRgDsj82ayBY/4pAZyP2BcX5WeRM3O06bw9kIs2GLrHvFB/DNzWWJyFvof8wQGqw==
   dependencies:
-    async "^2.5.0"
+    neo-async "^2.6.0"
     optimist "^0.6.1"
     source-map "^0.6.1"
   optionalDependencies:
@@ -2564,13 +2557,13 @@ hawk@~6.0.2:
     hoek "4.x.x"
     sntp "2.x.x"
 
-hbs@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/hbs/-/hbs-4.0.4.tgz#6139e8dcdec83d6352da3303337457823bca2c45"
-  integrity sha512-esVlyV/V59mKkwFai5YmPRSNIWZzhqL5YMN0++ueMxyK1cCfPa5f6JiHtapPKAIVAhQR6rpGxow0troav9WMEg==
+hbs@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/hbs/-/hbs-4.0.6.tgz#3054144dbd399cc7d351a39c016b3a52c9e19f5d"
+  integrity sha512-KFt3Y4zOvVQOp84TmqVaFTpBTYO1sVenBoBY712MI3vPkKxVoO6AsuEyDayIRPRAHRYZHHWnmc4spFa8fhQpLw==
   dependencies:
-    handlebars "4.0.14"
-    walk "2.3.9"
+    handlebars "4.3.5"
+    walk "2.3.14"
 
 hela-config-tunnckocore@2.2.16:
   version "2.2.16"
@@ -3867,6 +3860,11 @@ negotiator@0.6.1:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
   integrity sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=
 
+neo-async@^2.6.0:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
+  integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+
 new-release@2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/new-release/-/new-release-2.1.5.tgz#7cc3f2318973c49f89ffc63836ff05257d58d124"
@@ -4468,10 +4466,10 @@ private@^0.1.7:
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
   integrity sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==
 
-probot@9.5.2:
-  version "9.5.2"
-  resolved "https://registry.yarnpkg.com/probot/-/probot-9.5.2.tgz#cfe00123f3bb08808a6af735687b0dcf3f791c1e"
-  integrity sha512-cWqtgoJGdmyW0reC3nu0B9tNp8GqUC7lFZRbLRXo/i27StOH4FHFJl3wneL8nWiGgYog7iJocvySTaB7hf7iyQ==
+probot@9.5.3:
+  version "9.5.3"
+  resolved "https://registry.yarnpkg.com/probot/-/probot-9.5.3.tgz#7f24ca25152047710207ac2c22f7ba2ff8c467f4"
+  integrity sha512-K9jG7i2ANpVC2R+dlRoprU9pDz+mz/GXaM0i96X/tewX5SBQkFxT00AdETsi40aJXnrg6UUxpEcFBo/OeARiHA==
   dependencies:
     "@octokit/app" "^4.0.0"
     "@octokit/graphql" "^4.2.0"
@@ -4493,7 +4491,7 @@ probot@9.5.2:
     eventsource "^1.0.7"
     express "^4.16.2"
     express-async-errors "^3.0.0"
-    hbs "^4.0.4"
+    hbs "^4.0.6"
     ioredis "^4.5.1"
     is-base64 "1.0.0"
     js-yaml "^3.13.1"
@@ -5743,10 +5741,10 @@ vfile@^2.0.0:
     unist-util-stringify-position "^1.0.0"
     vfile-message "^1.0.0"
 
-walk@2.3.9:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/walk/-/walk-2.3.9.tgz#31b4db6678f2ae01c39ea9fb8725a9031e558a7b"
-  integrity sha1-MbTbZnjyrgHDnqn7hyWpAx5Vins=
+walk@2.3.14:
+  version "2.3.14"
+  resolved "https://registry.yarnpkg.com/walk/-/walk-2.3.14.tgz#60ec8631cfd23276ae1e7363ce11d626452e1ef3"
+  integrity sha512-5skcWAUmySj6hkBdH6B6+3ddMjVQYH5Qy9QGbPmN8kVmLteXk+yVXg+yfk1nbX30EYakahLrr8iPcCxJQSCBeg==
   dependencies:
     foreachasync "^3.0.0"
 
